@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja-jp">
+  <head>
+    <meta charset="utf-8">
+    <title>練習</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <article>
+      <h1>テキスト出力</h1>
+      <p>Hello Worldと出してみる</p>
+      <ul>
+        <li><a href="https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#Text">https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#Text</a></li>
+      </ul>
+<script type="module">
+
+const config = {
+	type: Phaser.AUTO,
+	width: 800,
+	height: 600,
+	physics: {
+		default: "arcade",
+		arcade: {
+			debug: true
+		}
+	},
+	scene: {
+		preload: preload,
+		create: create,
+		update: update
+	}
+};
+
+const game = new Phaser.Game(config);
+
+function preload()
+{
+}
+
+function create()
+{
+	const text = this.add.text(10, 10, "Hello World");
+}
+
+function update()
+{
+}
+
+</script>
+    </article>
+  </body>
+</html>
