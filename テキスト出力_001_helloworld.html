@@ -2,49 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>Phaser 3練習 | テキスト出力
-
-Hello Worldと出してみる
-
-* https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#Text
-
-&lt;script type=&#34;module&#34;&gt;
-
-const config = {
-	parent: document.getElementsByTagName(&#34;article&#34;)[0],
-	type: Phaser.AUTO,
-	width: 800,
-	height: 600,
-	physics: {
-		default: &#34;arcade&#34;,
-		arcade: {
-			debug: true
-		}
-	},
-	scene: {
-		preload: preload,
-		create: create,
-		update: update
-	}
-};
-
-const game = new Phaser.Game(config);
-
-function preload()
-{
-}
-
-function create()
-{
-	const text = this.add.text(10, 10, &#34;Hello World&#34;);
-}
-
-function update()
-{
-}
-
-&lt;/script&gt;
-</title>
+  <title>Phaser 3練習 | テキスト出力</title>
   <meta name="keywords" content="Phaser 3,hugo">
   <meta name="description" content="Phaser 3練習リポジトリ">
   <meta name="author" content="zenuas">

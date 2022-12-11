@@ -2,55 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>Phaser 3練習 | テキスト出力
-
-文字を回転させてみる
-
-* https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#angle
-
-&lt;script type=&#34;module&#34;&gt;
-
-const config = {
-	parent: document.getElementsByTagName(&#34;article&#34;)[0],
-	type: Phaser.AUTO,
-	width: 800,
-	height: 600,
-	physics: {
-		default: &#34;arcade&#34;,
-		arcade: {
-			debug: true
-		}
-	},
-	scene: {
-		preload: preload,
-		create: create,
-		update: update
-	}
-};
-
-const game = new Phaser.Game(config);
-let display;
-let text;
-let i = 180;
-
-function preload()
-{
-}
-
-function create()
-{
-	display = this.add.text(10, 10, &#34;angle: &#34;);
-	text = this.add.text(200, 200, &#34;Hello World&#34;);
-}
-
-function update()
-{
-	text.angle = (&#43;&#43;i % 360) - 180;
-	display.setText(&#34;angle: &#34; &#43; text.angle);
-}
-
-&lt;/script&gt;
-</title>
+  <title>Phaser 3練習 | テキスト出力</title>
   <meta name="keywords" content="Phaser 3,hugo">
   <meta name="description" content="Phaser 3練習リポジトリ">
   <meta name="author" content="zenuas">
