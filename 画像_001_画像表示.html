@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Phaser 3練習 | 画像</title>
+  <meta name="keywords" content="Phaser 3,hugo">
+  <meta name="description" content="Phaser 3練習リポジトリ">
+  <meta name="author" content="zenuas">
+  <meta name="generator" content="Hugo 0.108.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<header>
+  <h1><a href="https://zenuas.github.io/phaser3-training/">Phaser 3練習</a></h1>
+
+  <ul class="commands">
+    <li class="buttons"><a class="box github" href="https://github.com/zenuas/phaser3-training" target="_blank">GitHub</a></li>
+    <li class="buttons"><a class="box edit" href="https://github.com/zenuas/phaser3-training/edit/master/content/%e7%94%bb%e5%83%8f_001_%e7%94%bb%e5%83%8f%e8%a1%a8%e7%a4%ba.md" target="_blank">編集</a></li>
+    <li class="buttons"><a class="box document" href="https://raw.githubusercontent.com/zenuas/phaser3-training/master/content/%e7%94%bb%e5%83%8f_001_%e7%94%bb%e5%83%8f%e8%a1%a8%e7%a4%ba.md" target="_blank">ソース</a></li>
+    <li class="buttons"><a class="box history" href="https://github.com/zenuas/phaser3-training/commits/master/content/%e7%94%bb%e5%83%8f_001_%e7%94%bb%e5%83%8f%e8%a1%a8%e7%a4%ba.md" target="_blank">履歴</a></li>
+  </ul>
+</header>
+
+<div class="main-contents">
+  <article>
+    <h2 id="画像">画像</h2>
+<p>画像を出してみる</p>
+<ul>
+<li>preload で this.load.image(&ldquo;キー名&rdquo;, &ldquo;画像ファイル名&rdquo;)</li>
+<li>create で this.physics.add.sprite(X座標, Y座標, &ldquo;キー名&rdquo;)</li>
+<li><a href="https://photonstorm.github.io/phaser3-docs/Phaser.Loader.LoaderPlugin.html#image">https://photonstorm.github.io/phaser3-docs/Phaser.Loader.LoaderPlugin.html#image</a></li>
+</ul>
+<script type="module">
+
+const config = {
+	parent: document.getElementsByTagName("article")[0],
+	type: Phaser.AUTO,
+	width: 800,
+	height: 600,
+	physics: {
+		default: "arcade",
+		arcade: {
+			debug: false
+		}
+	},
+	scene: {
+		preload: preload,
+		create: create,
+		update: update
+	}
+};
+
+const game = new Phaser.Game(config);
+
+function preload()
+{
+	console.log(this.physics.add);
+	this.load.image("player", "./character-blue.png");
+}
+
+function create()
+{
+	this.physics.add.sprite(300, 300, "player");
+}
+
+function update()
+{
+}
+
+</script>
+
+  </article>
+</div>
+
+<footer>
+  <address>
+        Posted by <a href="https://github.com/zenuas">@zenuas</a>.<br>
+  </address>
+  Posted at 0001/01/01 00:00:00Z.<br>
+      Licensed by MIT License.<br>
+</footer>
+
+</html>
