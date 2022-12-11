@@ -1,0 +1,22 @@
+baseURL: 'http://example.org/'
+languageCode: 'ja'
+title: 'Site Title'
+uglyurls: true
+enableGitInfo: true
+
+params:
+  author: "myname"
+  description: "myname's Awesome Hugo Site"
+  keywords: "key,word,sample"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+      hardWraps: true
+    parser:
+      attribute:
+        block: true
+
+taxonomies:
+  # nothing

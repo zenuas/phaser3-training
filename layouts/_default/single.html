@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  <meta charset="utf-8">
+  <title>{{ printf "%s | %s" .Site.Title (.Title | default (trim (index (split .RawContent "\r\n") 0) "# ")) }}</title>
+  {{ with (delimit .Keywords ",") | default $.Site.Params.keywords     }}<meta name="keywords" content="{{ . }}">{{end}}
+  {{ with .Description | default $.Site.Params.description             }}<meta name="description" content="{{ . }}">{{end}}
+  {{ with $.Param "author.display_name" | default $.Site.Params.author }}<meta name="author" content="{{ . }}">{{end}}
+  {{ hugo.Generator }}
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<header>
+  <h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
+</header>
+
+<div class="main-contents">
+  <article>
+    {{ .Content }}
+  </article>
+</div>
+
+<footer>
+  <address>
+  Posted by <a href="https://github.com/zenuas">@zenuas</a>.<br>
+  </address>
+  Posted at {{ .GitInfo.AuthorDate.Format "2006/01/02 15:04:05" }}Z.<br>
+  Licensed by MIT License.
+</footer>
+
+</html>
