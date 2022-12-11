@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Site Title | テキスト出力
+
+文字を移動させてみる
+
+* https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#setX
+* https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#setY
+* https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#x
+* https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#y
+
+&lt;script type=&#34;module&#34;&gt;
+
+const config = {
+	parent: document.getElementsByTagName(&#34;article&#34;)[0],
+	type: Phaser.AUTO,
+	width: 800,
+	height: 600,
+	physics: {
+		default: &#34;arcade&#34;,
+		arcade: {
+			debug: true
+		}
+	},
+	scene: {
+		preload: preload,
+		create: create,
+		update: update
+	}
+};
+
+const game = new Phaser.Game(config);
+let display;
+let text;
+let i = 0;
+
+function preload()
+{
+}
+
+function create()
+{
+	display = this.add.text(10, 10, &#34;x: 0, y: 0&#34;);
+	text = this.add.text(200, 200, &#34;Hello World&#34;);
+}
+
+function update()
+{
+	i&#43;&#43;;
+	text.setX(200 &#43; i % 200);
+	text.setY(200 &#43; i % 50);
+	
+	display.setText(`x: ${text.x}, y: ${text.y}`);
+}
+
+&lt;/script&gt;
+</title>
+  <meta name="keywords" content="key,word,sample">
+  <meta name="description" content="myname&#39;s Awesome Hugo Site">
+  <meta name="author" content="myname">
+  <meta name="generator" content="Hugo 0.108.0">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<header>
+  <h1><a href="http://example.org/">Site Title</a></h1>
+</header>
+
+<div class="main-contents">
+  <article>
+    <h2 id="テキスト出力">テキスト出力</h2>
+<p>文字を移動させてみる</p>
+<ul>
+<li><a href="https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#setX">https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#setX</a></li>
+<li><a href="https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#setY">https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#setY</a></li>
+<li><a href="https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#x">https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#x</a></li>
+<li><a href="https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#y">https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#y</a></li>
+</ul>
+<script type="module">
+
+const config = {
+	parent: document.getElementsByTagName("article")[0],
+	type: Phaser.AUTO,
+	width: 800,
+	height: 600,
+	physics: {
+		default: "arcade",
+		arcade: {
+			debug: true
+		}
+	},
+	scene: {
+		preload: preload,
+		create: create,
+		update: update
+	}
+};
+
+const game = new Phaser.Game(config);
+let display;
+let text;
+let i = 0;
+
+function preload()
+{
+}
+
+function create()
+{
+	display = this.add.text(10, 10, "x: 0, y: 0");
+	text = this.add.text(200, 200, "Hello World");
+}
+
+function update()
+{
+	i++;
+	text.setX(200 + i % 200);
+	text.setY(200 + i % 50);
+	
+	display.setText(`x: ${text.x}, y: ${text.y}`);
+}
+
+</script>
+
+  </article>
+</div>
+
+<footer>
+  <address>
+  Posted by <a href="https://github.com/zenuas">@zenuas</a>.<br>
+  </address>
+  Posted at 0001/01/01 00:00:00Z.<br>
+  Licensed by MIT License.
+</footer>
+
+</html>
