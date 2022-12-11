@@ -32,10 +32,10 @@
 
 <footer>
   <address>
-  Posted by <a href="https://github.com/zenuas">@zenuas</a>.<br>
+        Posted by <a href="{{ $.Site.Params.github.owner_url }}">@{{ $.Site.Params.github.owner_name }}</a>.<br>
   </address>
   Posted at {{ .Lastmod.Format "2006/01/02 15:04:05" }}Z.<br>
-  Licensed by MIT License.
+      Licensed by {{ $.Site.Params.github.license.name }}.<br>
 </footer>
 
 </html>

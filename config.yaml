@@ -10,10 +10,14 @@ params:
   keywords: "Phaser 3,hugo"
   
   github:
+    owner_name: "zenuas"
+    owner_url: "https://github.com/zenuas"
     repository_url: "https://github.com/zenuas/phaser3-training"
     repository_nwo: "zenuas/phaser3-training"
     source:
       branch: "master"
+    license:
+      name: "MIT License"
 
 markup:
   goldmark:
