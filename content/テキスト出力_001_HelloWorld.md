@@ -7,6 +7,7 @@ Hello Worldと出してみる
 <script type="module">
 
 const config = {
+	parent: document.getElementsByTagName("article")[0],
 	type: Phaser.AUTO,
 	width: 800,
 	height: 600,
