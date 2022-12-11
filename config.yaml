@@ -1,13 +1,19 @@
-baseURL: 'http://example.org/'
+baseURL: 'https://zenuas.github.io/phaser3-training/'
 languageCode: 'ja'
-title: 'Site Title'
+title: 'Phaser 3練習'
 uglyurls: true
 enableGitInfo: true
 
 params:
-  author: "myname"
-  description: "myname's Awesome Hugo Site"
-  keywords: "key,word,sample"
+  author: "zenuas"
+  description: "Phaser 3練習リポジトリ"
+  keywords: "Phaser 3,hugo"
+  
+  github:
+    repository_url: "https://github.com/zenuas/phaser3-training"
+    repository_nwo: "zenuas/phaser3-training"
+    source:
+      branch: "master"
 
 markup:
   goldmark:
