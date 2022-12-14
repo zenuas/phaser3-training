@@ -30,7 +30,7 @@
 <p>画像を円軌道で回してみる</p>
 <ul>
 <li>中心を <code>(x + width / 2, y + heiht / 2)</code> とする</li>
-<li>単位円を描いて半径を <code>r</code> 倍する <code>(r / 2 + cos(t) * r, r / 2 + sin(t) * r)</code></li>
+<li>単位円を描いて半径を <code>r</code> 倍する <code>((cos(t) - 0.5) * r, (sin(t) - 0.5) * r)</code></li>
 <li>逆回転させる方法はいくつかあるけど <code>sin</code> と <code>cos</code> を入れ替えてもいい、<code>-t</code> にしても逆回転になる</li>
 </ul>
 <script type="module">
@@ -80,11 +80,11 @@ function update()
 	const r = 100;
 	t++;
 	t %= 360;
-	p2.setX(300 + p1.width  / 2 - r / 2 + Math.cos(t * (Math.PI / 180)) * r);
-	p2.setY(300 + p1.height / 2 - r / 2 + Math.sin(t * (Math.PI / 180)) * r);
+	p2.setX(300 + p1.width  / 2 + (Math.cos(t * Math.PI / 180) - 0.5) * r);
+	p2.setY(300 + p1.height / 2 + (Math.sin(t * Math.PI / 180) - 0.5) * r);
 	
-	p3.setX(300 + p1.width  / 2 - r / 2 + Math.sin(t * (Math.PI / 180)) * r);
-	p3.setY(300 + p1.height / 2 - r / 2 + Math.cos(t * (Math.PI / 180)) * r);
+	p3.setX(300 + p1.width  / 2 + (Math.sin(t * Math.PI / 180) - 0.5) * r);
+	p3.setY(300 + p1.height / 2 + (Math.cos(t * Math.PI / 180) - 0.5) * r);
 	
 	display.setText(`x: ${p2.x}, y: ${p2.y}`);
 }
