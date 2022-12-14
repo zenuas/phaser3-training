@@ -2,10 +2,10 @@
 <html lang="{{ .Site.LanguageCode | default "en" }}">
 <head>
   <meta charset="utf-8">
-  <title>{{ printf "%s | %s" .Site.Title (.Title | default (chomp (strings.TrimLeft "# " (index (split .RawContent "\n") 0)))) }}</title>
-  {{ with (delimit .Keywords ",") | default $.Site.Params.keywords     }}<meta name="keywords" content="{{ . }}">{{end}}
-  {{ with .Description | default $.Site.Params.description             }}<meta name="description" content="{{ . }}">{{end}}
-  {{ with $.Param "author.display_name" | default $.Site.Params.author }}<meta name="author" content="{{ . }}">{{end}}
+  <title>{{ printf "%s | %s" (.Title | default (chomp (strings.TrimLeft "# " (index (split .RawContent "\n") 0)))) .Site.Title }}</title>
+  {{ with (delimit .Keywords ",") | default .Site.Params.keywords    }}<meta name="keywords" content="{{ . }}">{{end}}
+  {{ with .Description | default .Site.Params.description            }}<meta name="description" content="{{ . }}">{{end}}
+  {{ with .Param "author.display_name" | default .Site.Params.author }}<meta name="author" content="{{ . }}">{{end}}
   {{ hugo.Generator }}
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
@@ -17,10 +17,10 @@
   <h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
 
   <ul class="commands">
-    <li class="buttons"><a class="box github" href="{{ $.Site.Params.github.repository_url }}" target="_blank">GitHub</a></li>
-    <li class="buttons"><a class="box edit" href="{{ $.Site.Params.github.repository_url }}/edit/{{ $.Site.Params.github.source.branch }}/content/{{ .File }}" target="_blank">編集</a></li>
-    <li class="buttons"><a class="box document" href="https://raw.githubusercontent.com/{{ $.Site.Params.github.repository_nwo }}/{{ $.Site.Params.github.source.branch }}/content/{{ .File }}" target="_blank">ソース</a></li>
-    <li class="buttons"><a class="box history" href="https://github.com/{{ $.Site.Params.github.repository_nwo }}/commits/{{ $.Site.Params.github.source.branch }}/content/{{ .File }}" target="_blank">履歴</a></li>
+    <li class="buttons"><a class="box github" href="{{ .Site.Params.github.repository_url }}" target="_blank">GitHub</a></li>
+    <li class="buttons"><a class="box edit" href="{{ .Site.Params.github.repository_url }}/edit/{{ .Site.Params.github.source.branch }}/content/{{ .File }}" target="_blank">編集</a></li>
+    <li class="buttons"><a class="box document" href="https://raw.githubusercontent.com/{{ .Site.Params.github.repository_nwo }}/{{ .Site.Params.github.source.branch }}/content/{{ .File }}" target="_blank">ソース</a></li>
+    <li class="buttons"><a class="box history" href="https://github.com/{{ .Site.Params.github.repository_nwo }}/commits/{{ .Site.Params.github.source.branch }}/content/{{ .File }}" target="_blank">履歴</a></li>
   </ul>
 </header>
 
@@ -32,10 +32,10 @@
 
 <footer>
   <address>
-        Posted by <a href="{{ $.Site.Params.github.owner_url }}">@{{ $.Site.Params.github.owner_name }}</a>.<br>
+    Posted by <a href="{{ .Site.Params.github.owner_url }}">@{{ .Site.Params.github.owner_name }}</a>.<br>
   </address>
   Posted at {{ .Lastmod.Format "2006/01/02 15:04:05" }}Z.<br>
-      Licensed by {{ $.Site.Params.github.license.name }}.<br>
+  Licensed by {{ .Site.Params.github.license.name }}.<br>
 </footer>
 
 </html>
