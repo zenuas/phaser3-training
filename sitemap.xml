@@ -6,7 +6,7 @@
     <priority>0</priority>
   </url><url>
     <loc>https://zenuas.github.io/phaser3-training/index.html</loc>
-    <lastmod>2022-12-11T23:23:47+09:00</lastmod>
+    <lastmod>2022-12-15T01:03:15+09:00</lastmod>
   </url><url>
     <loc>https://zenuas.github.io/phaser3-training/%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E5%87%BA%E5%8A%9B_001_helloworld.html</loc>
     <priority>0</priority>
@@ -24,6 +24,9 @@
     <priority>0</priority>
   </url><url>
     <loc>https://zenuas.github.io/phaser3-training/%E7%94%BB%E5%83%8F_001_%E7%94%BB%E5%83%8F%E8%A1%A8%E7%A4%BA.html</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>https://zenuas.github.io/phaser3-training/%E7%94%BB%E5%83%8F_002_%E5%86%86%E8%BB%8C%E9%81%93.html</loc>
     <priority>0</priority>
   </url>
 </urlset>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Phaser 3練習 | 画像</title>
+  <meta name="keywords" content="Phaser 3,hugo">
+  <meta name="description" content="Phaser 3練習リポジトリ">
+  <meta name="author" content="zenuas">
+  <meta name="generator" content="Hugo 0.108.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<header>
+  <h1><a href="https://zenuas.github.io/phaser3-training/">Phaser 3練習</a></h1>
+
+  <ul class="commands">
+    <li class="buttons"><a class="box github" href="https://github.com/zenuas/phaser3-training" target="_blank">GitHub</a></li>
+    <li class="buttons"><a class="box edit" href="https://github.com/zenuas/phaser3-training/edit/master/content/%e7%94%bb%e5%83%8f_002_%e5%86%86%e8%bb%8c%e9%81%93.md" target="_blank">編集</a></li>
+    <li class="buttons"><a class="box document" href="https://raw.githubusercontent.com/zenuas/phaser3-training/master/content/%e7%94%bb%e5%83%8f_002_%e5%86%86%e8%bb%8c%e9%81%93.md" target="_blank">ソース</a></li>
+    <li class="buttons"><a class="box history" href="https://github.com/zenuas/phaser3-training/commits/master/content/%e7%94%bb%e5%83%8f_002_%e5%86%86%e8%bb%8c%e9%81%93.md" target="_blank">履歴</a></li>
+  </ul>
+</header>
+
+<div class="main-contents">
+  <article>
+    <h2 id="画像">画像</h2>
+<p>画像を円軌道で回してみる</p>
+<ul>
+<li>中心を <code>(x + width / 2, y + heiht / 2)</code> とする</li>
+<li>単位円を描いて半径を <code>r</code> 倍する <code>(r / 2 + cos(t) * r, r / 2 + sin(t) * r)</code></li>
+<li>逆回転させる方法はいくつかあるけど <code>sin</code> と <code>cos</code> を入れ替えてもいい、<code>-t</code> にしても逆回転になる</li>
+</ul>
+<script type="module">
+
+const config = {
+	parent: document.getElementsByTagName("article")[0],
+	type: Phaser.AUTO,
+	width: 800,
+	height: 600,
+	physics: {
+		default: "arcade",
+		arcade: {
+			debug: true
+		}
+	},
+	scene: {
+		preload: preload,
+		create: create,
+		update: update
+	}
+};
+
+const game = new Phaser.Game(config);
+let display;
+let p1;
+let p2;
+let p3;
+let t = 0;
+
+function preload()
+{
+	this.load.image("player", "./character-blue.png");
+	this.load.image("player2", "./arrow-blue.png");
+	this.load.image("player3", "./arrow-red.png");
+}
+
+function create()
+{
+	display = this.add.text(10, 10, "x: 0, y: 0");
+	p1 = this.physics.add.sprite(300, 300, "player");
+	p2 = this.physics.add.sprite(0, 0, "player2");
+	p3 = this.physics.add.sprite(0, 0, "player3");
+}
+
+function update()
+{
+	const r = 100;
+	t++;
+	t %= 360;
+	p2.setX(300 + p1.width  / 2 - r / 2 + Math.cos(t * (Math.PI / 180)) * r);
+	p2.setY(300 + p1.height / 2 - r / 2 + Math.sin(t * (Math.PI / 180)) * r);
+	
+	p3.setX(300 + p1.width  / 2 - r / 2 + Math.sin(t * (Math.PI / 180)) * r);
+	p3.setY(300 + p1.height / 2 - r / 2 + Math.cos(t * (Math.PI / 180)) * r);
+	
+	display.setText(`x: ${p2.x}, y: ${p2.y}`);
+}
+
+</script>
+
+  </article>
+</div>
+
+<footer>
+  <address>
+        Posted by <a href="https://github.com/zenuas">@zenuas</a>.<br>
+  </address>
+  Posted at 0001/01/01 00:00:00Z.<br>
+      Licensed by MIT License.<br>
+</footer>
+
+</html>

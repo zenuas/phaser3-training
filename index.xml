@@ -15,7 +15,7 @@
       <description>練習 Phaser3を使用する練習
 テキスト出力
 001_HelloWorld 002_カウントアップ 003_文字の回転 004_文字の移動 005_フェードインアウト 画像
-001_画像表示 </description>
+001_画像表示 002_円軌道 </description>
     </item>
     
     <item>
@@ -76,6 +76,16 @@ https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Text.html#setAlpha
       <guid>https://zenuas.github.io/phaser3-training/%E7%94%BB%E5%83%8F_001_%E7%94%BB%E5%83%8F%E8%A1%A8%E7%A4%BA.html</guid>
       <description>画像 画像を出してみる
 preload で this.load.image(&amp;ldquo;キー名&amp;rdquo;, &amp;ldquo;画像ファイル名&amp;rdquo;) create で this.physics.add.sprite(X座標, Y座標, &amp;ldquo;キー名&amp;rdquo;) https://photonstorm.github.io/phaser3-docs/Phaser.Loader.LoaderPlugin.html#image </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zenuas.github.io/phaser3-training/%E7%94%BB%E5%83%8F_002_%E5%86%86%E8%BB%8C%E9%81%93.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zenuas.github.io/phaser3-training/%E7%94%BB%E5%83%8F_002_%E5%86%86%E8%BB%8C%E9%81%93.html</guid>
+      <description>画像 画像を円軌道で回してみる
+中心を (x + width / 2, y + heiht / 2) とする 単位円を描いて半径を r 倍する (r / 2 + cos(t) * r, r / 2 + sin(t) * r) 逆回転させる方法はいくつかあるけど sin と cos を入れ替えてもいい、-t にしても逆回転になる </description>
     </item>
     
   </channel>
