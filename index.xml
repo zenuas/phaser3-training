@@ -15,7 +15,7 @@
       <description>練習 Phaser3を使用する練習
 テキスト出力
 001_HelloWorld 002_カウントアップ 003_文字の回転 004_文字の移動 005_フェードインアウト 画像
-001_画像表示 002_円軌道 </description>
+001_画像表示 002_円軌道 003_中心回転 </description>
     </item>
     
     <item>
@@ -86,6 +86,16 @@ preload で this.load.image(&amp;ldquo;キー名&amp;rdquo;, &amp;ldquo;画像�
       <guid>https://zenuas.github.io/phaser3-training/%E7%94%BB%E5%83%8F_002_%E5%86%86%E8%BB%8C%E9%81%93.html</guid>
       <description>画像 画像を円軌道で回してみる
 中心を (x + width / 2, y + heiht / 2) とする 単位円を描いて半径を r 倍する ((cos(t) - 0.5) * r, (sin(t) - 0.5) * r) 逆回転させる方法はいくつかあるけど sin と cos を入れ替えてもいい、-t にしても逆回転になる </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zenuas.github.io/phaser3-training/%E7%94%BB%E5%83%8F_003_%E4%B8%AD%E5%BF%83%E5%9B%9E%E8%BB%A2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zenuas.github.io/phaser3-training/%E7%94%BB%E5%83%8F_003_%E4%B8%AD%E5%BF%83%E5%9B%9E%E8%BB%A2.html</guid>
+      <description>画像 画像を中心を軸に回転してみる
+angleを設定すれば勝手に中心を軸に回転する https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Image.html#angle </description>
     </item>
     
   </channel>
