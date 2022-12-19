@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>画像 | Phaser 3練習</title>
+  <meta name="keywords" content="Phaser 3,hugo">
+  <meta name="description" content="Phaser 3練習リポジトリ">
+  <meta name="author" content="zenuas">
+  <meta name="generator" content="Hugo 0.108.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<header>
+  <h1><a href="https://zenuas.github.io/phaser3-training/">Phaser 3練習</a></h1>
+
+  <ul class="commands">
+    <li class="buttons"><a class="box github" href="https://github.com/zenuas/phaser3-training" target="_blank">GitHub</a></li>
+    <li class="buttons"><a class="box edit" href="https://github.com/zenuas/phaser3-training/edit/master/content/%e7%94%bb%e5%83%8f_004_%e5%90%91%e3%81%8d%e5%9b%ba%e5%ae%9a.md" target="_blank">編集</a></li>
+    <li class="buttons"><a class="box document" href="https://raw.githubusercontent.com/zenuas/phaser3-training/master/content/%e7%94%bb%e5%83%8f_004_%e5%90%91%e3%81%8d%e5%9b%ba%e5%ae%9a.md" target="_blank">ソース</a></li>
+    <li class="buttons"><a class="box history" href="https://github.com/zenuas/phaser3-training/commits/master/content/%e7%94%bb%e5%83%8f_004_%e5%90%91%e3%81%8d%e5%9b%ba%e5%ae%9a.md" target="_blank">履歴</a></li>
+  </ul>
+</header>
+
+<div class="main-contents">
+  <article>
+    <h2 id="画像">画像</h2>
+<p>画像を中心を軸に回転してみる<br>
+適当な位置からでも大きな画像の方を向かせる</p>
+<ul>
+<li>2点間のベクトルの差を取って <code>angle</code> を求める(角度変換は <code>atan2</code>)</li>
+<li>ラジアン角が求められるので <code>RadToDeg</code> で度数変換</li>
+<li>画像が上向きのため最後に調整する</li>
+<li><a href="https://photonstorm.github.io/phaser3-docs/Phaser.Math.Vector2.html#angle">https://photonstorm.github.io/phaser3-docs/Phaser.Math.Vector2.html#angle</a></li>
+<li><a href="https://photonstorm.github.io/phaser3-docs/Phaser.Math.html#.RadToDeg">https://photonstorm.github.io/phaser3-docs/Phaser.Math.html#.RadToDeg</a></li>
+</ul>
+<script type="module">
+
+const config = {
+	parent: document.getElementsByTagName("article")[0],
+	type: Phaser.AUTO,
+	width: 800,
+	height: 600,
+	physics: {
+		default: "arcade",
+		arcade: {
+			debug: true
+		}
+	},
+	scene: {
+		preload: preload,
+		create: create,
+		update: update
+	}
+};
+
+const game = new Phaser.Game(config);
+let display;
+let p1;
+let p2;
+let t = 0;
+
+function preload()
+{
+	this.load.image("player", "./character-blue.png");
+	this.load.image("player2", "./arrow-blue.png");
+}
+
+function create()
+{
+	display = this.add.text(10, 10, "");
+	p1 = this.physics.add.sprite(300, 300, "player");
+	p2 = this.physics.add.sprite(0, 0, "player2");
+}
+
+function update()
+{
+	const r = 100;
+	t++;
+	t %= 360;
+	
+	p2.x = 300 + p1.width  / 2 + (Math.cos(t * Math.PI / 180) - 0.5) * r;
+	p2.y = 300 + p1.height / 2 + (Math.sin(t * Math.PI / 180) - 0.5) * r * 2;
+	if(p2.y <= 200)
+	{
+		p2.y = 200 + p2.y / 10;
+		p2.x = 700 - p2.x;
+	}
+	
+	const vec = p1.getCenter().subtract(p2.getCenter());
+	p2.angle = Phaser.Math.RadToDeg(vec.angle()) + 90;
+	
+	display.setText(`angle: ${p2.angle}`);
+}
+
+</script>
+
+  </article>
+</div>
+
+<footer>
+  <address>
+    Posted by <a href="https://github.com/zenuas">@zenuas</a>.<br>
+  </address>
+  Posted at 0001/01/01 00:00:00Z.<br>
+  Licensed by MIT License.<br>
+</footer>
+
+</html>

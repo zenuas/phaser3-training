@@ -15,7 +15,7 @@
       <description>練習 Phaser3を使用する練習
 テキスト出力
 001_HelloWorld 002_カウントアップ 003_文字の回転 004_文字の移動 005_フェードインアウト 画像
-001_画像表示 002_円軌道 003_中心回転 </description>
+001_画像表示 002_円軌道 003_中心回転 004_向き固定 </description>
     </item>
     
     <item>
@@ -96,6 +96,17 @@ preload で this.load.image(&amp;ldquo;キー名&amp;rdquo;, &amp;ldquo;画像�
       <guid>https://zenuas.github.io/phaser3-training/%E7%94%BB%E5%83%8F_003_%E4%B8%AD%E5%BF%83%E5%9B%9E%E8%BB%A2.html</guid>
       <description>画像 画像を中心を軸に回転してみる
 angleを設定すれば勝手に中心を軸に回転する https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Image.html#angle </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zenuas.github.io/phaser3-training/%E7%94%BB%E5%83%8F_004_%E5%90%91%E3%81%8D%E5%9B%BA%E5%AE%9A.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zenuas.github.io/phaser3-training/%E7%94%BB%E5%83%8F_004_%E5%90%91%E3%81%8D%E5%9B%BA%E5%AE%9A.html</guid>
+      <description>画像 画像を中心を軸に回転してみる
+適当な位置からでも大きな画像の方を向かせる
+2点間のベクトルの差を取って angle を求める(角度変換は atan2) ラジアン角が求められるので RadToDeg で度数変換 画像が上向きのため最後に調整する https://photonstorm.github.io/phaser3-docs/Phaser.Math.Vector2.html#angle https://photonstorm.github.io/phaser3-docs/Phaser.Math.html#.RadToDeg </description>
     </item>
     
   </channel>
